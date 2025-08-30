@@ -2,6 +2,11 @@
 
 This project is a proof of concept for watermarking arbitrary input images using their latent representations. The security of the watermarking scheme is based on the security of worst case lattice problems, particularly through the  Continuous Learning With Errors problem. This project is inspired by the recent work of [Shehata et. al.](https://arxiv.org/abs/2411.11434)
 
+Authors: 
+
+1. [Aditya Morolia](https://thecharmingsociopath.github.io)
+2. [Yaonan Zhang]()
+
 ## Applications
 
 ## Technical Overview
