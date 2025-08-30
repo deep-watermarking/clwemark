@@ -3,14 +3,14 @@
 *AI for Cybersecurity, and Security for AI*
 
 This project is a proof of concept for watermarking arbitrary input images using their latent representations. The security of the watermarking scheme is based on the security of worst case lattice problems, particularly through the  Continuous Learning With Errors problem.
-We believe that this simple strategy of watermarking latent representaions should extend to video and audio content, paving way to new applications in content provenance, anti-piracy, and securing AI-generated media. This approach could also be adapted for use in digital rights management (DRM) systems, ensuring the authenticity and ownership of multimedia content.
+We believe that this simple strategy of watermarking latent representations should extend to video and audio content, paving the way to new applications in content provenance, anti-piracy, and securing AI-generated media. This approach could also be adapted for use in digital rights management (DRM) systems, ensuring the authenticity and ownership of multimedia content.
 
 This project was built for a TikTok hackathon under the theme **AI x Cybersecurity: use AI for cybersecurity, use cybersecurity for AI**. Our solution leverages the security of lattice-based cryptography (LWE) and the power of AI models to watermark arbitrary input images, not just generated ones. Among other applications, this enables platforms like TikTok to verify content authenticity and prevent reward payouts for stolen or reposted content, addressing both AI for security and security for AI.
 
 Authors:
 
 1. [Aditya Morolia](https://thecharmingsociopath.github.io)
-2. Yaonan Zhang
+2. [Zhang YaoNan](https://www.cqt.sg/people/Zhang-Yaonan/)
 
 This project is inspired by a recent work of [Shehata et. al.](https://arxiv.org/abs/2411.11434)
 
