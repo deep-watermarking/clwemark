@@ -4,11 +4,11 @@ This project is a proof of concept for watermarking arbitrary input images using
 
 ## Applications
 
-### Technical Overview
+## Technical Overview
 
-#### Adding a Watermark
+### Adding a Watermark
 
-#### Testing for the presense of the watermark, given the secret key 
+### Testing for the presense of the watermark, given the secret key 
 
 The Rayleigh test is a statistical method used to detect non-uniformity in circular data (angles). In this project, it is used to measure the detectability of the watermark signal embedded in latent vectors.
 
