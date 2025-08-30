@@ -1,4 +1,4 @@
-diffusers["torch"]~=0.35.1
+diffusers[torch]~=0.35.1
 numpy~=2.1.2
 torch~=2.8.0 -i https://download.pytorch.org/whl/cpu
 torchvision~=0.23.0 -i https://download.pytorch.org/whl/cpu
