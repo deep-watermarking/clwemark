@@ -1,6 +1,13 @@
 import numpy as np
 # import pycircstat as pcs
+from scipy.stats import norm
 
+def rayleigh_test(angles):
+    n = len(angles)
+    R = np.sqrt(np.sum(np.cos(angles))**2 + np.sum(np.sin(angles))**2)
+    z = (R**2) / n
+    p_value = np.exp(-z)
+    return z, p_value
 
 def get_random_samples(dims, var=1/4):
     g = np.random.default_rng()
@@ -75,8 +82,9 @@ def get_hclwe_errors(samples, secret_direction, gamma):
     inner_prod = inner_prod_with_secret(samples, secret_direction)
     return (gamma * inner_prod) % 1
 
-# def get_hclwe_score(samples, secret_direction, gamma):
-#     return pcs.tests.rayleigh(2 * np.pi * get_hclwe_errors(samples, secret_direction, gamma))[0]
+def get_hclwe_score(samples, secret_direction, gamma):
+    return rayleigh_test(2 * np.pi * get_hclwe_errors(samples, secret_direction, gamma))[0]
+    # return pcs.tests.rayleigh(2 * np.pi * get_hclwe_errors(samples, secret_direction, gamma))[0]
 
 
 class CLWEWatermarker:
@@ -92,3 +100,7 @@ class CLWEWatermarker:
 
     def get_errors(self, latents_np: np.ndarray) -> np.ndarray:
         return get_hclwe_errors(latents_np, self.secret, self.gamma)
+
+    def get_score(self, latents_np: np.ndarray) -> float:
+        return get_hclwe_score(latents_np, self.secret, self.gamma)
+

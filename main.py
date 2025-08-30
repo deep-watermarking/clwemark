@@ -60,12 +60,13 @@ else:
 latent = image_to_latent(image)
 
 # new_latent = latent + 0.05 * (torch.randn_like(latent) * 2 - 1) 
-new_latent = torch.tensor(watermarker.inject_watermark(latent.numpy(force=True)), 
+watermarked_latent = torch.tensor(watermarker.inject_watermark(latent.numpy(force=True)), 
                           device=latent.device, dtype=latent.dtype)
 
-new_image = latent_to_image(new_latent)
-new_image.show()
+watermarked_image = latent_to_image(watermarked_latent)
+watermarked_image.show()
 
-# recovered_latent = image_to_latent(new_image)
-# print(torch.abs(new_latent - latent).mean())
-# print(torch.abs(recovered_latent - new_latent).mean())
+recovered_latent = image_to_latent(watermarked_image)
+print("Score - original latent:", watermarker.get_score(latent.numpy(force=True)))
+print("Score - watermarked latent:", watermarker.get_score(watermarked_latent.numpy(force=True)))
+print("Score - recovered latent:", watermarker.get_score(recovered_latent.numpy(force=True)))
