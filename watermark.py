@@ -1,6 +1,4 @@
 import numpy as np
-# import pycircstat as pcs
-from scipy.stats import norm
 
 def rayleigh_test(angles):
     n = len(angles)
@@ -84,7 +82,6 @@ def get_hclwe_errors(samples, secret_direction, gamma):
 
 def get_hclwe_score(samples, secret_direction, gamma):
     return rayleigh_test(2 * np.pi * get_hclwe_errors(samples, secret_direction, gamma))[0]
-    # return pcs.tests.rayleigh(2 * np.pi * get_hclwe_errors(samples, secret_direction, gamma))[0]
 
 
 class CLWEWatermarker:
