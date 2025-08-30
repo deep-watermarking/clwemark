@@ -14,10 +14,21 @@ Authors:
 
 This project is inspired by a recent work of [Shehata et. al.](https://arxiv.org/abs/2411.11434)
 
-
 ## Table of Contents
 
-[toc]
+- [Problem Statement](#problem-statement)
+- [Features & Functionality](#features--functionality)
+- [Applications](#applications)
+- [Technical Overview](#technical-overview)
+  - [Glossary of Terms](#glossary-of-terms)
+  - [Development Tools](#development-tools)
+  - [APIs & Assets](#apis--assets)
+  - [Libraries Used](#libraries-used)
+  - [Watermarking Process](#watermarking-process)
+  - [Testing for the presense of the watermark, given the secret key](#testing-for-the-presense-of-the-watermark-given-the-secret-key)
+- [Usage](#usage)
+- [Future Work](#future-work)
+- [References](#references)
 
 ---
 
