@@ -80,12 +80,13 @@ Additionally, our approach can be adapted for use in digital rights management (
 ## Technical Overview
 
 ```mermaid
-flowchart TD
-    A[img] -- encode --> B{latent}
-    B -- slightly modify <br> (with secret key) --> C{latent'}
-    C -- decode --> D[image']
-    D -- encode --> E{latent''}
-    E --> F[detect the watermark <br> with secret key]
+flowchart LR
+    A[Image I] -- Autoencoder (VAE) --> B{Latent Vector $V$}
+    B -- Perturb the Latent Vector <br> (conditioned on secret key) --> C{Latent Vector $V'$}
+    C -- VAE Decoder --> D[Image I' (watermarked)]
+    D -- Autoencoder (VAE) --> E{Latent Vector $V''$}
+    E --> F[Detect watermark <br> (using the secret key)]
+```
 ```
 
 ### Glossary of Terms
