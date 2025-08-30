@@ -7,6 +7,50 @@ We believe that this simple strategy of watermarking latent representations shou
 
 This project was built for a TikTok hackathon under the theme **AI x Cybersecurity: use AI for cybersecurity, use cybersecurity for AI**. Our solution leverages the security of lattice-based cryptography (LWE) and the power of AI models to watermark arbitrary input images, not just generated ones. Among other applications, this enables platforms like TikTok to verify content authenticity and prevent reward payouts for stolen or reposted content, addressing both AI for security and security for AI.
 
+## Example Results
+
+A high $z$-score indicates watermarked content. Notice that the watermarked and unwatermarked images look very similar, whereas our detector can detect the presense of watermark. Crucially, these images are *not* AI generated, this works on any image. For example, an image or video uploaded to a social media website like TikTok can be watermarked using the secret key associated with a user to track the content across the site. 
+
+- A cute cat
+
+  <p float="left">
+    <img src="files/cat.png" height="200" />
+    <img src="files/cat_wm.png" height="200" />
+  </p>
+
+  ```
+  Score - original latent: 0.8407634515610969
+  Score - watermarked latent: 2047.915515914207
+  Score - recovered latent: 277.40393013277276
+  ```
+
+- Some random text on white board
+
+
+  <p float="left">
+    <img src="files/whiteboard.png" height="200" />
+    <img src="files/whiteboard_wm.png" height="200" />
+  </p>
+  
+  ```
+  Score - original latent: 0.5190702115711778
+  Score - watermarked latent: 2047.922844034305
+  Score - recovered latent: 287.4833341125703
+  ```
+
+- An AI-generated AI painter
+
+  <p float="left">
+    <img src="files/ai.png" height="200" />
+    <img src="files/ai_wm.png" height="200" />
+  </p>
+
+  ```
+  Score - original latent: 0.21480081461289857
+  Score - watermarked latent: 2047.9199220895846
+  Score - recovered latent: 112.39022243191638
+  ```
+
 Authors:
 
 1. [Aditya Morolia](https://thecharmingsociopath.github.io)
@@ -17,6 +61,7 @@ This project is inspired by a recent work of [Shehata et. al.](https://arxiv.org
 ## Table of Contents
 
 - [Problem Statement](#problem-statement)
+  - [Example Results](#example-results)
 - [Features & Functionality](#features--functionality)
 - [Applications](#applications)
 - [Technical Overview](#technical-overview)
@@ -27,7 +72,6 @@ This project is inspired by a recent work of [Shehata et. al.](https://arxiv.org
   - [Watermarking Process](#watermarking-process)
   - [Testing for the presense of the watermark, given the secret key](#testing-for-the-presense-of-the-watermark-given-the-secret-key)
 - [Usage](#usage)
-- [Example Results](#example-results)
 - [Future Work](#future-work)
 - [References](#references)
 
@@ -58,7 +102,8 @@ Additionally, our approach can be adapted for use in digital rights management (
   The watermark's security is based on the hardness of lattice problems, making it resistant to adversarial detection.
 - **Robustness to Transformations:**  
   The watermark is designed to be robust against common image transformations such as resizing, cropping, and compression.
-- **Performance:** Our implementation is efficient, leveraging pre-trained models and optimized libraries for fast processing. Particularly, watermark injection works in under 30 seconds for a 512x512 image on a standard laptop CPU.
+- **Performance:**
+  Our implementation is efficient, leveraging pre-trained models and optimized libraries for fast processing. Particularly, watermark injection works in under 30 seconds for a 512x512 image on a standard laptop CPU.
 - **Ease of Integration:**  
   The watermarking process can be integrated into existing AI pipelines, such as image generation or editing workflows.
 - **Open Source:**  
@@ -161,41 +206,6 @@ The Rayleigh test is a statistical method used to detect non-uniformity in circu
 2. Run the main script: `python main.py path_to_image.png`
 
 If no image is provided, a blank 512x512 image is used.
-
-## Example Results
-
-- A cute cat
-
-  ![](files/cat.png)
-  ![](files/cat_wm.png)
-
-  ```
-  Score - original latent: 0.8407634515610969
-  Score - watermarked latent: 2047.915515914207
-  Score - recovered latent: 277.40393013277276
-  ```
-
-- Some random text on white board
-
-  ![](files/whiteboard.png)
-  ![](files/whiteboard_wm.png)
-  
-  ```
-  Score - original latent: 0.5190702115711778
-  Score - watermarked latent: 2047.922844034305
-  Score - recovered latent: 287.4833341125703
-  ```
-
-- An AI-generated AI painter
-
-  ![](files/ai.png)
-  ![](files/ai_wm.png)
-
-  ```
-  Score - original latent: 0.21480081461289857
-  Score - watermarked latent: 2047.9199220895846
-  Score - recovered latent: 112.39022243191638
-  ```
 
 ## Future Work
 
