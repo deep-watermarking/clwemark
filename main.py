@@ -3,6 +3,8 @@ import torch
 from PIL import Image
 import numpy as np
 import sys
+import matplotlib.pyplot as plt
+import scipy.stats as stats
 
 device = "cpu"
 
@@ -29,6 +31,23 @@ def latent_to_image(latent: torch.Tensor) -> Image.Image:
     recon_image = (recon_image * 255).astype(np.uint8)
     return Image.fromarray(recon_image)
 
+def draw_distribution(latent: torch.Tensor):
+    latent_np = latent.cpu().numpy()  # shape: (1, C, H, W)
+    latent_flat = latent_np.reshape(latent_np.shape[1], -1)  # shape: (C, H*W)
+
+    print(latent_flat.shape)
+
+    for i in range(latent_flat.shape[0]):  # plot first 4 channels
+        plt.figure(figsize=(12, 5))
+        plt.subplot(1, 2, 1)
+        plt.hist(latent_flat[i], bins=100, density=True)
+        plt.title(f'Histogram of latent channel {i}')
+        plt.subplot(1, 2, 2)
+        stats.probplot(latent_flat[i], dist="norm", plot=plt)
+        plt.title(f'Q-Q plot of latent channel {i}')
+        plt.show()
+
+
 if len(sys.argv) > 1:
     image = Image.open(sys.argv[1]).convert("RGB")
 else:
@@ -36,7 +55,10 @@ else:
     image = Image.new('RGB', (512, 512), color = 'white')
 
 latent = image_to_latent(image)
-new_latent = latent + 0.05 * (torch.randn_like(latent) * 2 - 1) 
+new_latent = latent + 0.05 * (torch.randn_like(latent) * 2 - 1)
+print(latent.shape)
+
+draw_distribution(latent)
 
 new_image = latent_to_image(new_latent)
 new_image.show()
