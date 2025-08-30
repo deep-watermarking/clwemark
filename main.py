@@ -28,12 +28,19 @@ def latent_to_image(latent: torch.Tensor) -> Image.Image:
     recon_image = (recon_image * 255).astype(np.uint8)
     return Image.fromarray(recon_image)
 
-image = Image.open('images/p2.jpg').convert("RGB")
+image = Image.open('images/live_cat.png').convert("RGB")
+# let image be a 512x512 white image
+#image = Image.new('RGB', (512, 512), color = 'white')
 
 latent = image_to_latent(image)
 
-new_latent = latent + 0.1 * (torch.randn_like(latent) * 2 - 1) 
+new_latent = latent + 0.5 * (torch.randn_like(latent) * 2 - 1) 
 
 new_image = latent_to_image(new_latent)
 
 new_image.show()
+
+recovered_latent = image_to_latent(new_image)
+
+print(torch.abs(new_latent - latent).mean())
+print(torch.abs(recovered_latent - new_latent).mean())
