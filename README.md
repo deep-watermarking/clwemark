@@ -81,11 +81,11 @@ Additionally, our approach can be adapted for use in digital rights management (
 
 ```mermaid
 flowchart LR
-    A[Image I] -- Autoencoder (VAE) --> B{Latent Vector $V$}
-    B -- Perturb the Latent Vector <br> (conditioned on secret key) --> C{Latent Vector $V'$}
-    C -- VAE Decoder --> D[Image I' (watermarked)]
-    D -- Autoencoder (VAE) --> E{Latent Vector $V''$}
-    E --> F[Detect watermark <br> (using the secret key)]
+    A["Image I1"] -- "Autoencoder (VAE)" --> B["Latent Vector V1"]
+    B -- "Perturb V1 <br> (conditioned on secret key)" --> C["Latent Vector V2"]
+    C -- "VAE Decoder" --> D["Image I2 (watermarked)"]
+    D -- "Autoencoder (VAE)" --> E["Latent Vector V3"]
+    E --> F["Detect watermark <br> (using the secret key)."]
 ```
 ```
 
