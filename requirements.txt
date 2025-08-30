@@ -1,5 +1,6 @@
+--extra-index-url https://download.pytorch.org/whl/cpu
+numpy~=2.1
+torch==2.8.0+cpu
+torchvision==0.23.0+cpu
+transformers~=4.56
 diffusers[torch]~=0.35.1
-numpy~=2.1.2
-torch~=2.8.0 -i https://download.pytorch.org/whl/cpu
-torchvision~=0.23.0 -i https://download.pytorch.org/whl/cpu
-transformers~=4.56.0
