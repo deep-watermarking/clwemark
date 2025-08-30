@@ -9,7 +9,7 @@ This project was built for a TikTok hackathon under the theme **AI x Cybersecuri
 
 ## Example Results
 
-A high $z$-score indicates watermarked content. Notice that the watermarked and unwatermarked images look very similar, whereas our detector can detect the presense of watermark. Crucially, these images are *not* AI generated, this works on any image. For example, an image or video uploaded to a social media website like TikTok can be watermarked using the secret key associated with a user to track the content across the site. 
+A high $z$-score indicates watermarked content. Notice that the watermarked and unwatermarked images look very similar, whereas our detector can detect the presense of watermark. Crucially, these images are *not* AI generated, this works on any image. For example, an image or video uploaded to a social media website like TikTok can be watermarked using the secret key associated with a user to track the content across the site. The watermark is robust to common image transformations like resizing, cropping, filtering and compression.
 
 - A cute cat
 
