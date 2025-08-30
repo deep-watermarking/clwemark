@@ -87,7 +87,6 @@ flowchart LR
     D -- "Autoencoder (VAE)" --> E["Latent Vector V3"]
     E --> F["Detect watermark <br> (using the secret key)."]
 ```
-```
 
 ### Glossary of Terms
 
