@@ -176,6 +176,7 @@ If no image is provided, a blank 512x512 image is used.
   ```
 
 - Some random text on white board
+
   ![](files/whiteboard.png)
   ![](files/whiteboard_wm.png)
   
@@ -186,6 +187,7 @@ If no image is provided, a blank 512x512 image is used.
   ```
 
 - An AI-generated AI painter
+
   ![](files/ai.png)
   ![](files/ai_wm.png)
 
