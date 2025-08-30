@@ -27,6 +27,7 @@ This project is inspired by a recent work of [Shehata et. al.](https://arxiv.org
   - [Watermarking Process](#watermarking-process)
   - [Testing for the presense of the watermark, given the secret key](#testing-for-the-presense-of-the-watermark-given-the-secret-key)
 - [Usage](#usage)
+- [Example Results](#example-results)
 - [Future Work](#future-work)
 - [References](#references)
 
@@ -161,7 +162,7 @@ The Rayleigh test is a statistical method used to detect non-uniformity in circu
 
 If no image is provided, a blank 512x512 image is used.
 
-## Example results
+## Example Results
 
 - A cute cat
 
