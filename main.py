@@ -72,6 +72,8 @@ watermarked_latent = torch.tensor(
 watermarked_image = latent_to_image(watermarked_latent)
 watermarked_image.show()
 
+watermarked_image.save(sys.argv[1].split(".")[0] + "_wm.png")
+
 recovered_latent = image_to_latent(watermarked_image)
 print("Score - original latent:", watermarker.get_score(latent.numpy(force=True)))
 print(

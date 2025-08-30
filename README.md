@@ -161,6 +161,39 @@ The Rayleigh test is a statistical method used to detect non-uniformity in circu
 
 If no image is provided, a blank 512x512 image is used.
 
+## Example results
+
+- A cute cat
+
+  ![](files/cat.png)
+  ![](files/cat_wm.png)
+
+  ```
+  Score - original latent: 0.8407634515610969
+  Score - watermarked latent: 2047.915515914207
+  Score - recovered latent: 277.40393013277276
+  ```
+
+- Some random text on white board
+  ![](files/whiteboard.png)
+  ![](files/whiteboard_wm.png)
+  
+  ```
+  Score - original latent: 0.5190702115711778
+  Score - watermarked latent: 2047.922844034305
+  Score - recovered latent: 287.4833341125703
+  ```
+
+- An AI-generated AI painter
+  ![](files/ai.png)
+  ![](files/ai_wm.png)
+
+  ```
+  Score - original latent: 0.21480081461289857
+  Score - watermarked latent: 2047.9199220895846
+  Score - recovered latent: 112.39022243191638
+  ```
+
 ## Future Work
 
 - Extend watermarking to video and audio content.
