@@ -78,6 +78,15 @@ Additionally, our approach can be adapted for use in digital rights management (
 
 ## Technical Overview
 
+```mermaid
+flowchart TD
+    A[img] -- encode --> B{latent}
+    B -- slightly modify <br> (with secret key) --> C{latent'}
+    C -- decode --> D[image']
+    D -- encode --> E{latent''}
+    E --> F[detect the watermark <br> with secret key]
+```
+
 ### Glossary of Terms
 
 - **VAE (Variational Auto-Encoder):** A type of neural network that encodes input data into a latent space and decodes it back to the original space.
