@@ -5,10 +5,13 @@ import numpy as np
 import sys
 import matplotlib.pyplot as plt
 import scipy.stats as stats
+from watermark import CLWEWatermarker
 
 device = "cpu"
 
 vae = AutoencoderKL.from_pretrained("CompVis/stable-diffusion-v1-4", subfolder="vae").to(device)
+
+watermarker = CLWEWatermarker(8, 0.5, 0.001, 42)
 
 def image_to_latent(image: Image.Image) -> torch.Tensor:
     image_np = np.array(image).astype(np.float32) / 255.0
@@ -55,14 +58,14 @@ else:
     image = Image.new('RGB', (512, 512), color = 'white')
 
 latent = image_to_latent(image)
-new_latent = latent + 0.05 * (torch.randn_like(latent) * 2 - 1)
-print(latent.shape)
 
-draw_distribution(latent)
+# new_latent = latent + 0.05 * (torch.randn_like(latent) * 2 - 1) 
+new_latent = torch.tensor(watermarker.inject_watermark(latent.numpy(force=True)), 
+                          device=latent.device, dtype=latent.dtype)
 
 new_image = latent_to_image(new_latent)
 new_image.show()
 
-recovered_latent = image_to_latent(new_image)
-print(torch.abs(new_latent - latent).mean())
-print(torch.abs(recovered_latent - new_latent).mean())
+# recovered_latent = image_to_latent(new_image)
+# print(torch.abs(new_latent - latent).mean())
+# print(torch.abs(recovered_latent - new_latent).mean())

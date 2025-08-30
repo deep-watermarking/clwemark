@@ -1,4 +1,4 @@
---extra-index-url https://download.pytorch.org/whl/cpu
+<<<<<<< HEAD
 numpy~=2.1
 torch==2.8.0+cpu
 torchvision==0.23.0+cpu
