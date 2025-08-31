@@ -124,12 +124,20 @@ Additionally, our approach can be adapted for use in digital rights management (
 
 ## Technical Overview
 
+### Adding Watermarks
+
 ```mermaid
 flowchart LR
     A["Image I1"] -- "Autoencoder (VAE)" --> B["Latent Vector V1"]
     B -- "Perturb V1 <br> (conditioned on secret key)" --> C["Latent Vector V2"]
     C -- "VAE Decoder" --> D["Image I2 (watermarked)"]
-    D -- "Autoencoder (VAE)" --> E["Latent Vector V3"]
+```
+
+### Detecting Watermarks
+
+```mermaid
+flowchart LR
+    D["Image I2 (watermarked)"] -- "Autoencoder (VAE)" --> E["Latent Vector V3"]
     E --> F["Detect watermark <br> (using the secret key)."]
 ```
 
