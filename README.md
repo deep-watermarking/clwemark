@@ -2,6 +2,8 @@
 
 *AI for Cybersecurity, and Security for AI*
 
+Isn't it annoying when people steal your content and claim a payout, after you've working so hard to create something? We demonstrate that social media companies can prevent this using machine learning and lattice based cryptography. 
+
 This project is a proof of concept for watermarking arbitrary input images using their latent representations. The security of the watermarking scheme is based on the security of worst case lattice problems, particularly through the  Continuous Learning With Errors problem.
 We believe that this simple strategy of watermarking latent representations should extend to video and audio content, paving the way to new applications in content provenance, anti-piracy, and securing AI-generated media. This approach could also be adapted for use in digital rights management (DRM) systems, ensuring the authenticity and ownership of multimedia content.
 
